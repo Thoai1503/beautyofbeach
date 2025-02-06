@@ -1,0 +1,20 @@
+/* App.css */
+.custom-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.custom-row {
+  margin: 0 !important;
+}
+.copyright { 
+  background: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Play";
+  font-size: 20px;
+}

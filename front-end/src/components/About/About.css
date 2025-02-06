@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Meie+Script&family=Smooch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Kalnia+Glaze:wdth,wght@103.5,100..700&display=swap');
+
+.imghead img {
+    filter: blur(2px);
+}
+
+.btnhead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #7e97b8;
+    background-color: #e0e8ef;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: rgba(255, 255, 255, 0.333);
+    border-radius: 40px 40px 40px 40px;
+    padding: 16px 24px 16px 28px;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: 0.2s;
+    box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+    width: 350px;
+    height: 50px;
+
+}
+
+.btnhead:hover {
+    color: #516d91;
+    background-color: #E5EDF5;
+    box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+}
+
+.btnhead:active {
+    box-shadow: none;
+}
+
+.videohead {
+    float: right;
+    margin: 50px;
+    margin-right: 80px;
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+.hau {
+    position: relative;
+    display: inline-block
+}
+
+.overlay-image {
+    position: absolute;
+    right: 100px;
+    width: 500px;
+    height: 450px;
+    top: 61px;
+    border: 10px solid transparent;
+}
+
+.texthau {
+    position: absolute;
+    top: 250px;
+    left: 450px;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-family: "Rubik", sans-serif;
+    max-width: 500px;
+    color: #222222;
+}
+
+.hauh1 {
+    font-family: "Smooch", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 120px;
+    margin-bottom: 30px;
+
+}
+
+.textthien {
+    position: absolute;
+    top: 250px;
+    left: 1000px;
+    transform: translate(-50%, -50%);
+    color: #DDDDDD;
+    font-size: 30px;
+    font-family: 'Edu AU VIC WA NT Hand', sans-serif;
+}
+
+.thienh1 {
+    font-family: "Smooch", cursive;
+    font-style: normal;
+    text-align: center;
+    font-size: 90px;
+}
+
+.overlay-image2 {
+    position: absolute;
+    right: 730px;
+    width: 450px;
+    height: 400px;
+    top: 102px;
+
+}
+
+.one-div {
+    position: relative;
+
+    background-color: rgb(15, 15, 15);
+    transform-style: preserve-3d;
+    animation: rot 2s infinite ease;
+    border-radius: 20px;
+    box-shadow: 0 0 50px 0px, inset 0 0 90px 0px;
+    color: white;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-div .text {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.one-div:hover.one-div .text {
+    scale: 1.2;
+    opacity: 0.7;
+}
+
+.one-div:hover {
+    box-shadow: 0 0 30px 1000px black, inset 5px 5px 5px 0px rgb(31, 31, 31);
+}
+
+@keyframes rot {
+    0% {
+        transform: rotateX(-15deg) translateY(0px);
+    }
+
+    50% {
+        transform: rotateX(-15deg) translateY(-10px);
+    }
+
+    100% {
+        transform: rotateX(-15deg) translateY(0px);
+    }
+}
+
+.image2::before {
+    display: flex;
+    justify-content: center;
+    color: #222222;
+}
+
+.textintroduce {
+    text-align: center;
+    font-size: 90px;
+    padding-bottom: 40px;
+    box-shadow: #7e97b8;
+    font-family: "Bungee Spice", sans-serif;
+}
+
+.card1 {
+    width: 100%;
+    height: 500px;
+    border-radius: 4px;
+    display: flex;
+    border: 1px solid black;
+}
+
+.card1 p {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card1 p:hover {
+    flex: 10;
+}
+
+.card1 p span {
+    min-width: 34em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .2s;
+    text-transform: uppercase;
+
+}
+
+.card1 p:hover span {
+    transform: rotate(0);
+}
+
+body {
+
+}

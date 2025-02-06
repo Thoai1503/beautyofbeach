@@ -1,0 +1,464 @@
+/* font  */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+PT:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Playwrite+PT:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-size: cover;
+
+}
+
+.background_home {
+  display: center;
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+      image-rendering: crisp-edges; /* Tăng độ nét */
+  height: auto;
+   background-position: center center; /* Canh giữa theo chiều ngang và dọc */
+  background-repeat: no-repeat; /* Để tránh lặp lại hình ảnh */
+  background-size: cover;
+  background-image: url("/public/Images/backgroundsections.jpg");
+}
+.sections-1 {
+  background-size: cover;
+  height: 100vh;
+  padding-bottom: 300px;
+}
+
+section.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center; /* Căn dọc */
+  height: 80vh;
+  font-family: "Open sans";
+}
+.Images-section {
+  position: absolute;
+  z-index: 1;
+  filter: blur(); /* Làm mờ ảnh với bán kính 5px */
+  background-size: cover;
+}.homepic {
+    display: center;
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+      image-rendering: crisp-edges; /* Tăng độ nét */
+  height: auto;
+   background-position: center center; /* Canh giữa theo chiều ngang và dọc */
+  background-repeat: no-repeat; /* Để tránh lặp lại hình ảnh */
+  background-size: cover;
+}
+
+.content-contents {
+  z-index: 2;
+    width: 100%;
+}
+.content-contents h2 {
+  padding-bottom: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000b3;
+  letter-spacing: 15px;
+  font-family: "Pacifico";
+}
+p.text_2 {
+  padding-bottom: 30px;
+  font-size: 20px;
+  color: #000000c1;
+  letter-spacing: 6px;
+  font-family: "Pacifico";
+}
+img {
+  width: 100%;
+}
+.btn {
+  width: 100%;
+}
+button {
+  padding: 10px;
+  height: 40px;
+  background-color: transparent;
+  transform: translateY(0.2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Chakra Petch";
+  font-weight: 700;
+  transition: all 0.4s linear;
+}
+
+.btn-1 {
+  margin-right: 100px;
+  border-radius: 35px;
+  height: 60px;
+  width: 150px;
+  display: inline-block;
+  align-items: center;
+  /* text-align: center; */
+  border: 3px solid rgb(46, 46, 43);
+  font-size: 20px;
+    letter-spacing: 2px;
+  color: rgb(16, 62, 63);
+}
+.btn-1:hover {
+  background-color: #277489;
+  color: #fff;
+}
+.btn-2:hover {
+  background-color: #277489;
+  color: #fff;
+}
+.btn-2 {
+  border-radius: 30px;
+  height: 55px;
+  font-size: 20px;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid rgb(46, 46, 43);
+  color: black;
+  height: 60px;
+  letter-spacing: 2px;
+}
+
+h3.beachTop {
+  font-size: 50px;
+  font-family: "Roboto Condensed";
+  color: white;
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 500px;
+  padding: 20px 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #1d2d31d1;
+  border: none;
+   box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.5); /* Đổ bóng */  
+}
+
+.top {
+  border: 3px solid #0a2139;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  /* background-color: #153b43; */
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-2 {
+
+}
+.top {
+  margin-bottom: 50px;
+}
+
+section.container-2 {
+  height: 80vh;
+  
+}
+
+.container-3 {
+  height: 20vh;
+  padding-left: 45px;
+  padding-top: 150px;
+}
+.clearfix img {
+  padding-right: 40px;
+}
+.sections-3 {
+  margin-top: -200px;
+  font-family: "Poppins";
+  font-size: 18px;
+  letter-spacing: 2px;
+  height: 90vh;
+}
+.sections-3 .text_content_history {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+h3.history {
+  width: 50%;
+  text-align: center;
+  padding: 20px 20px;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Roboto Condensed';
+  color: #06202d8a;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */  
+}
+
+.sections-4 {
+  text-align: center;
+  color: rgba(3, 43, 82, 0.465);
+  height: 100vh;
+  margin-bottom: 100px;
+}
+.container-4 .ranker h3.ratingBeachVN {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Playwrite Portugal";
+}
+
+.info .items-beach {
+  width: 100%;
+  border-radius: 30px;
+  height: 50vh;
+}
+
+
+
+section.container-4 .beach-VN {
+  font-size: 30px;
+  box-shadow: 10px 10px 10px rgba(0 , 0 , 0 , 0.5);
+  padding: 20px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-family: "Playwrite Portugal";
+}
+.slide_Home {
+  width: 100%;
+  height: 60vh;
+}
+.sections {
+  display: block;
+}
+.sections-5 {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  margin: 20px;
+  border-radius: 10px;
+  /* background-color: #f9f9f9; */
+  text-align: center;
+  color: white;
+}
+
+.container-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 15px 1px 20px 10 rgba(0 , 0 , 0 , 0); 
+  background-color: transparent;
+  color: white;
+    height: 60vh;
+    margin-bottom: 100px;
+    margin-top: 200px;
+      border-radius: 50px;
+      border: 10px solid black;
+
+}
+
+.border-btn ul.main-btn {
+width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    gap: 30px;  padding-right:20px ;
+}
+.border-btn ul.main-btn li.main-button-icons {
+  margin: 10px 100px;
+  list-style: none;
+  width: 100%;
+}
+button.menu-border {
+  height: 400px;
+  width: 350px;
+  border: none;
+  border-radius: 20px;
+  background-size: cover;
+  background-color  : rgb(255, 255, 255);
+
+}
+.text_btn {
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+button.menu-border img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.text_btn_m {
+  padding: 50px 50px;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* section-6 */
+
+/* src/components/AnimatedText.css */
+.sections-6 {
+  background: #01121ed2;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container-6 {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: "Play";
+}
+
+.heading.white h2,
+.heading.white p {
+  color: #fff;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.contactInfo, .formBx {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contactInfo h3, .formBx h3 {
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.contactInfoBx {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.contactInfoBx .box {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.contactInfo .box .icon {
+  min-width: 40px;
+  padding-top: 4px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.contactInfo .box .text {
+  margin-left: 20px;
+  font-size: 19px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactInfo .box .text h3 {
+  font-weight: 500;
+  color: #2196f3;
+  margin-bottom: 0;
+}
+
+.formBx form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formBx form input, .formBx form textarea {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: #383838;
+  color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formBx form input:focus, .formBx form textarea:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.5);
+}
+
+.formBx form textarea {
+  min-height: 150px;
+}
+
+.formBx form input::placeholder, .formBx form textarea::placeholder {
+  color: #999;
+}
+
+.formBx form input[type="submit"] {
+  max-width: 200px;
+  background: #2196f3;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formBx form input[type="submit"]:hover {
+  background-color: #1e88e5;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.5);
+}
+.copyright {
+  background: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Play";
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .contactInfo, .formBx {
+    width: 48%;
+  }
+
+  .contactInfoBx {
+    flex-direction: column;
+  }
+}

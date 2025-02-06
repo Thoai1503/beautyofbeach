@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+body {
+  font-family: "Open sans";
+  font-size: 14px;
+  line-height: 1.15;
+  color: #111;
+  /* background: linear-gradient(to right, rgb(196, 181, 253), rgb(167, 139, 250)); */
+}
+#wrapper {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.headline {
+  text-align: center;
+  margin: 40px 0px;
+}
+.headline h3 {
+  font-size: 18px;
+  color: #555;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: 1px solid #bebebe;
+  display: inline-block;
+  font-weight: 600;
+}
+ul.products {
+  display: flex;
+}
+
+.headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* button.active-btn {
+  
+} */
