@@ -13,6 +13,7 @@ import { Navigate } from "react-router-dom";
 
 const CommentSection = ({ id }) => {
   //login form
+  const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -61,11 +62,12 @@ const CommentSection = ({ id }) => {
 
   const fetchComments = async () => {
     setComments([]);
-
+    setLoading(true);
     try {
       axios.get(`http://127.0.0.1:8000/api/comments/${id}`).then((res) => {
         setComments(res.data);
         console.log(res);
+        setLoading(false);
       });
     } catch (error) {
       console.log(error);
@@ -216,20 +218,33 @@ const CommentSection = ({ id }) => {
 
         <button onClick={handleShowSuccess}>Đăng ký</button>
 
-        <div id="comments">
-          {comments.length > 0 ? (
-            comments.map((comment) => (
-              <CommentFeed
-                key={comment.id}
-                comment={comment.comment}
-                accountid={comment.accountid}
-                createdAt={comment.created_at}
-              />
-            ))
-          ) : (
-            <p>Chưa có bình luận nào</p>
-          )}
-        </div>
+        {loading ? (
+          <p
+            style={{
+              fontSize: 50,
+              color: " #007bff",
+              textAlign: "center",
+              marginTop: 20,
+            }}
+          >
+            ...Loading
+          </p>
+        ) : (
+          <div id="comments">
+            {comments.length > 0 ? (
+              comments.map((comment) => (
+                <CommentFeed
+                  key={comment.id}
+                  comment={comment.comment}
+                  accountid={comment.accountid}
+                  createdAt={comment.created_at}
+                />
+              ))
+            ) : (
+              <p>Chưa có bình luận nào</p>
+            )}
+          </div>
+        )}
       </div>
 
       <Modal show={show} onHide={handleClose}>
