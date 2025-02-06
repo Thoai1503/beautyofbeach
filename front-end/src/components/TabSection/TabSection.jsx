@@ -250,7 +250,9 @@ const TabSection = ({ id }) => {
               <Feed
                 key={index}
                 image={review.image_name}
+                accountid={review.accountid}
                 comment={review.comment}
+                imageC={review.image_name}
                 createdAt={review.created_at}
                 ratingScore={review.ratingScore}
               />

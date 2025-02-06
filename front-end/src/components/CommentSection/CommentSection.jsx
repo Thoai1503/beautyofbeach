@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useStateContext } from "../../Context/ContextProvider";
 import Alert from "react-bootstrap/Alert";
+import CommentFeed from "../CommentFeed/CommentFeed";
 import { Navigate } from "react-router-dom";
 
 const CommentSection = ({ id }) => {
@@ -218,12 +219,12 @@ const CommentSection = ({ id }) => {
         <div id="comments">
           {comments.length > 0 ? (
             comments.map((comment) => (
-              <div key={comment.id} className="comment">
-                <p>
-                  <strong>{comment.name}:</strong> {comment.comment}
-                </p>
-                <p>{comment.created_at}</p>
-              </div>
+              <CommentFeed
+                key={comment.id}
+                comment={comment.comment}
+                accountid={comment.accountid}
+                createdAt={comment.created_at}
+              />
             ))
           ) : (
             <p>Chưa có bình luận nào</p>

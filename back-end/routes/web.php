@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeachesController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContinentsController;
@@ -62,3 +63,5 @@ Route::get('api/reviews/{beachid}', [ImageController::class, 'findByBeachId']);
 Route::get('api/beach_re/{id}', [BeachesController::class, 'showRe']);
 Route::get('api/limit/{id}', [BeachesController::class, 'limit']);
 Route::get('api/test', [BeachesController::class, 'noParamTest']);
+
+Route::get('api/user/{id}', [AuthController::class, 'getUserById']);
