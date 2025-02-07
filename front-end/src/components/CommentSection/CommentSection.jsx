@@ -184,53 +184,46 @@ const CommentSection = ({ id }) => {
 
   return (
     <body>
-      <div>
-        <form action="action_page.php" />
-        <label for="fname" style={{ display: "block" }}>
-          Comment
-        </label>
-        <input
-          ref={cmRef}
-          type="text"
-          id="fname"
-          name="firstname"
-          placeholder="Your comment.."
-
-          // onChange={(e) => {
-          //   setCm(e.target.value);
-          //   setComment({
-          //     beachid: `${id}`,
-          //     accountid: "1",
-          //     comment: `${cm}`,
-          //   });
-          //   console.log(cm);
-          // }}
-        />
-        {token ? (
-          <button type="submit" value="Submit" onClick={Submit}>
-            Submit
-          </button>
-        ) : (
-          <button type="submit" value="Submit" onClick={handleShow}>
-            Submit
-          </button>
-        )}
-
-        <button onClick={handleShowSuccess}>Đăng ký</button>
+      <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-lg">
+        <form action="action_page.php" className="mb-4">
+          <label htmlFor="fname" className="block text-lg font-semibold mb-2">
+            Comment
+          </label>
+          <div className="flex items-center space-x-4">
+            <input
+              ref={cmRef}
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="Your comment.."
+              className="flex-grow p-2 border border-gray-300 rounded-lg"
+            />
+            {token ? (
+              <button
+                type="submit"
+                value="Submit"
+                onClick={Submit}
+                className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-3 px-6 rounded-full hover:from-blue-600 hover:to-blue-800 transition duration-300 shadow-lg transform hover:scale-105"
+              >
+                Comment
+              </button>
+            ) : (
+              <button
+                type="submit"
+                value="Submit"
+                onClick={handleShow}
+                className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-3 px-6 rounded-full hover:from-blue-600 hover:to-blue-800 transition duration-300 shadow-lg transform hover:scale-105"
+              >
+                Comment
+              </button>
+            )}
+          </div>
+        </form>
 
         {loading ? (
-          <p
-            style={{
-              fontSize: 50,
-              color: " #007bff",
-              textAlign: "center",
-              marginTop: 20,
-            }}
-          >
-            ...Loading
-          </p>
+          <p className="text-4xl text-blue-500 text-center mt-5">...Loading</p>
         ) : (
-          <div id="comments">
+          <div id="comments" className="space-y-4">
             {comments.length > 0 ? (
               comments.map((comment) => (
                 <CommentFeed
@@ -241,12 +234,13 @@ const CommentSection = ({ id }) => {
                 />
               ))
             ) : (
-              <p>Chưa có bình luận nào</p>
+              <p className="text-center text-gray-500 text-lg italic mt-4">
+                Chưa có bình luận nào
+              </p>
             )}
           </div>
         )}
       </div>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>
