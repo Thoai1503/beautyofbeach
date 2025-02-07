@@ -20,7 +20,7 @@ const SingleBeach = () => {
   const [redirectToAdmin, setRedirectToAdmin] = useState(false);
   useEffect(() => {
     if (role === "admin") {
-      console.log("Role cuả tao nè: " + role);
+      console.log("Role cuả tui nè: " + role);
       setRedirectToAdmin(true);
     }
 
