@@ -47,6 +47,8 @@ export default function Navbar() {
   const handleCloseSuccess = () => setShowSuccess(false);
   const handleShowSuccess = () => setShowSuccess(true);
   const [login, setLogin] = useState({});
+  const [fileName, setFileName] = useState("");
+  const [file, setFile] = useState(null);
 
   const {
     user,
@@ -67,6 +69,19 @@ export default function Navbar() {
     const inputValue = emailRef.current.value;
     alert(`Submitted value: ${inputValue}`);
   };
+  const handleFileChange = (event) => {
+    event.preventDefault();
+    const selectedFile = event.target.files[0];
+
+    if (selectedFile) {
+      setFileName(selectedFile.name);
+      setFile(selectedFile);
+      console.log(file, fileName);
+    } else {
+      setFileName("");
+      setFile(null);
+    }
+  };
 
   const handleChange = (e) => {
     let name = e.target.name;
@@ -83,22 +98,37 @@ export default function Navbar() {
   const handleRegister = (e) => {
     e.preventDefault();
     console.log(e);
+    if (register.password !== register.passwordcfm) {
+      alert("Vui lòng xác nhận lại mật khẩu");
+      return;
+    }
+    const fData = new FormData();
+
+    fData.append("image", file);
+    fData.append("name", register.name);
+    fData.append("email", register.email);
+    fData.append("password", register.password);
+
     axios
-      .post(`http://127.0.0.1:8000/api/register`, register)
+      .post(`http://127.0.0.1:8000/api/register`, fData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
         if (res) {
+          console.log(res.data);
           setUserId(res.data.user.id);
-          setAvartar(res.data.user.image_url);
           setUser(res.data.user.name);
           setToken(res.data.token);
-          console.log(res.data.user);
-          console.log(res.data.token);
+          setAvartar(res.data.user.image_url);
           handleCloseRegister();
           handleShowSuccess();
         }
       })
       .catch((err) => console.log(err));
   };
+
   const handleLogin = (e) => {
     e.preventDefault();
     axios
@@ -264,12 +294,6 @@ export default function Navbar() {
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {["warning"].map((variant) => (
-            <Alert key={variant} variant={variant}>
-              Bạn chưa đăng nhập. <br />
-              Vui lòng đăng nhập để có thể bình luận!
-            </Alert>
-          ))}
           <Form onSubmit={handleLogin}></Form>
           <Form onSubmit={handleSubmit}>
             <Form.Group
@@ -395,6 +419,7 @@ export default function Navbar() {
               <Col sm="10">
                 <Form.Control
                   type="password"
+                  style={{ borderRadius: 10 }}
                   placeholder="Password.."
                   name="password"
                   onChange={handleChangeRegister}
@@ -402,17 +427,48 @@ export default function Navbar() {
               </Col>
               <br />
               <br />
-              <Row>
-                <p></p>
-              </Row>
-              <Row>
-                <Col md={7}></Col>
-                <Col md={5}>
-                  <a href="">Bạn chưa có tài khoản ?</a>
-                </Col>
-              </Row>
+            </Form.Group>
+            <br />
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextPassword"
+            >
+              <Form.Label column sm="2">
+                Confirm Password
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control
+                  style={{ borderRadius: 10 }}
+                  type="password"
+                  placeholder="Password Comfirmation.."
+                  name="passwordcfm"
+                  onChange={handleChangeRegister}
+                />
+              </Col>
+              <br />
+              <br />
+            </Form.Group>
+            <br />
+            <Form.Group controlId="formFileSm" className="mb-3">
+              <Form.Label>Chọn ảnh đại diện</Form.Label>
+              <Form.Control
+                type="file"
+                size="sm"
+                name=""
+                onChange={(e) => handleFileChange(e)}
+              />
             </Form.Group>
           </Form>
+          <Row>
+            <p></p>
+          </Row>
+          <Row>
+            <Col md={7}></Col>
+            <Col md={5}>
+              <a href="">Bạn chưa có tài khoản ?</a>
+            </Col>
+          </Row>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseRegister}>

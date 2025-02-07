@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Rating } from "@mui/material";
 import axios from "axios";
+import { Modal, Button } from "react-bootstrap";
 
 const Feed = ({
   image,
@@ -12,6 +13,9 @@ const Feed = ({
 }) => {
   const [img, setImg] = useState("");
   const [name, setName] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
   const fetchUser = async () => {
     try {
@@ -29,28 +33,45 @@ const Feed = ({
   }, []);
 
   return (
-    <div className="relative bg-white shadow-md rounded-lg p-4 mb-4">
-      <div className="absolute top-2 right-2 text-gray-500 text-sm">
-        {new Date(createdAt).toLocaleString()}
-      </div>
-      <div className="flex items-center">
-        <img
-          src={img}
-          alt="Avatar"
-          className="w-16 h-16 rounded-full object-cover mr-4"
-        />
-        <div>
-          <Rating name="read-only" value={4.5} precision={0.5} readOnly />
+    <div className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md">
+      <img
+        src={img}
+        alt={`${name}'s avatar`}
+        className="w-12 h-12 rounded-full object-cover"
+      />
+      <div>
+        <div className="flex items-center space-x-2">
+          <h4 className="text-lg font-semibold">{name}</h4>
+          <span className="text-sm text-gray-500">
+            {new Date(createdAt).toLocaleString()}
+          </span>
         </div>
-      </div>
-      <div className="mt-4">
-        <p className="text-gray-700">{comment}</p>
+        <Rating name="read-only" value={4.5} precision={0.5} readOnly />
 
-        <img
-          src={imageC}
-          alt="Committed Image"
-          className="w-25 h-18  object-cover mt-4"
-        />
+        <div className="mt-2">
+          <p className="mt-2 text-gray-700">{comment}</p>
+        </div>
+        {imageC && (
+          <img
+            src={imageC}
+            alt="Committed Image"
+            className="w-25 h-18 object-cover mt-4"
+            onClick={handleShowModal}
+          />
+        )}
+        <Modal show={showModal} onHide={handleCloseModal} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Image Preview</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <img src={imageC} alt="Committed Image" className="w-full h-auto" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   );

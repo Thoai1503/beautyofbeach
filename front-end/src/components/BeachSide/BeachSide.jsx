@@ -42,49 +42,26 @@ const BeachSide = ({ id, title, filter }) => {
   console.log(filter);
   return (
     <>
-      <Col
-        className="slide-beach"
-        style={{
-          boxShadow: "10px 8px 16px 10px rgba(0, 0, 0, 0.25)",
-          backgroundColor: "gba(0, 191, 255, 1)",
-          borderRadius: 10,
-        }}
-      >
+      <Col className="slide-beach bg-blue-500 shadow-lg rounded-lg p-4">
         <Container>
-          {" "}
-          <h2 style={{ marginTop: 30 }}>{title}</h2>
+          <h2 className="mt-8 text-white text-2xl font-bold">{title}</h2>
         </Container>
-        <div
-          style={{
-            paddingLeft: 20,
-
-            marginTop: 10,
-            height: 500,
-            overflow: "scroll",
-            paddingTop: 30,
-          }}
-        >
+        <div className="overflow-y-scroll h-[calc(100vh-200px)] mt-4">
           {filter
             ? filter.map((item) => (
-                <Link to={`/beach/${item.id}`}>
-                  <div className="side-item" key={item.id}>
-                    <Row
-                      style={{
-                        border: "1px solid #808080",
-
-                        width: "100%",
-                        borderRadius: 5,
-                        marginTop: 10,
-                        backgroundColor: "white",
-                        padding: "10px 0px",
-                      }}
-                    >
+                <Link to={`/beach/${item.id}`} key={item.id}>
+                  <div className="side-item mb-4 p-4 bg-white rounded-lg shadow-md">
+                    <Row className="border border-gray-300 rounded-lg p-2">
                       <Col className="image-col" md={4}>
-                        <img src={item.avartar_url} alt={item.name} />{" "}
+                        <img
+                          src={item.avartar_url}
+                          alt={item.name}
+                          className="w-full h-auto rounded-lg"
+                        />
                       </Col>
                       <Col md={8}>
-                        <h5>{item.name}</h5>
-                        <p>
+                        <h5 className="text-lg font-semibold">{item.name}</h5>
+                        <p className="text-gray-600">
                           <b>Visitor:</b> {item.visitor}
                         </p>
                         <Rating
@@ -99,25 +76,19 @@ const BeachSide = ({ id, title, filter }) => {
                 </Link>
               ))
             : relatedBeaches.map((item) => (
-                <Link to={`/beach/${item.id}`}>
-                  <div className="side-item" key={item.id}>
-                    <Row
-                      style={{
-                        border: "1px solid #808080",
-
-                        width: "100%",
-                        borderRadius: 5,
-                        marginTop: 10,
-                        backgroundColor: "white",
-                        padding: "10px 0px",
-                      }}
-                    >
+                <Link to={`/beach/${item.id}`} key={item.id}>
+                  <div className="side-item mb-4 p-4 bg-white rounded-lg shadow-md">
+                    <Row className="border border-gray-300 rounded-lg p-2">
                       <Col className="image-col" md={4}>
-                        <img src={item.avartar_url} alt={item.name} />{" "}
+                        <img
+                          src={item.avartar_url}
+                          alt={item.name}
+                          className="w-full h-auto rounded-lg"
+                        />
                       </Col>
                       <Col md={8}>
-                        <h5>{item.name}</h5>
-                        <p>
+                        <h5 className="text-lg font-semibold">{item.name}</h5>
+                        <p className="text-gray-600">
                           <b>Visitor:</b> {item.visitor}
                         </p>
                         <Rating

@@ -65,3 +65,5 @@ Route::get('api/limit/{id}', [BeachesController::class, 'limit']);
 Route::get('api/test', [BeachesController::class, 'noParamTest']);
 
 Route::get('api/user/{id}', [AuthController::class, 'getUserById']);
+
+Route::delete('api/beach/{id}', [BeachesController::class, 'destroy']);

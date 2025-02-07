@@ -8,6 +8,7 @@ const CommentFeed = ({ comment, accountid, createdAt }) => {
 
   const fetchUser = async () => {
     try {
+      // const accountidp = accountid.toString();
       axios.get(`http://127.0.0.1:8000/api/user/${accountid}`).then((res) => {
         setImg(res.data.user.image_url);
         setName(res.data.user.name);
@@ -19,7 +20,7 @@ const CommentFeed = ({ comment, accountid, createdAt }) => {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [accountid]);
 
   return (
     <div className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-md">

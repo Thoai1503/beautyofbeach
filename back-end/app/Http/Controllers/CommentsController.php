@@ -13,7 +13,7 @@ class CommentsController extends Controller
     {
         $validateData = $request->validate([
             'beachid'=>'required|string',
-            'accountid'=>'required|string',
+            'accountid'=>'required|integer',
             'comment'=>'required|string'
         ]);
     
@@ -38,9 +38,9 @@ class CommentsController extends Controller
 
        // $comments = Comments::where('beachid', $beachid)->get();
 
-        if ($result->isEmpty()) {
-            return response()->json(['message' => 'No comments found for this beach']);
-        }
+        // if ($result->isEmpty()) {
+        //     return response()->json(['message' => 'No comments found for this beach']);
+        // }
 
         return response()->json($result);
     }

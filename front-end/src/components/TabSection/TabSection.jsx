@@ -53,8 +53,10 @@ const TabSection = ({ id }) => {
 
   const submitData = (e) => {
     e.preventDefault();
-
-    if (!token || (token && commentRef.current.value === "")) {
+    if (!token) {
+      alert("Vui lòng đăng nhập để bình luận");
+      return;
+    } else if (token && commentRef.current.value === "") {
       setSelectedTab("radiofortab2");
     } else if (token && commentRef.current.value === "") {
       alert("Vui lòng nhập bình luận");

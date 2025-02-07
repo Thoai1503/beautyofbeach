@@ -36,25 +36,7 @@ class BeachesController extends Controller
             'ratingScore'=>$validateData['ratingScore'] ??'',
             'avartar_url'=>$validateData['avartar_url'] ??''
         ]);
-    //     $input = $request->all();
-    //     $validator = Validator::make($input,[
-    //         'id'=>'required',
-    //         'name'=>'required',
-    //         'description'=>'required',
-    //         'visitor'=>'required',
-    //         'nationid'=>'required',
-    //         'ratingScore'=>'required',
-    //         'avartar_url'=>'required'
-    //     ]);
-    //     if($validator->fails()){
-    //         return response()->json(['success'=>'false']);
-    //   }
-    //   $beach= Beaches::create($input);
-    //   return response()->json([
-    //     'success'=>'true',
-    //     'message'=> 'Successfully added',
-    //     'beach'=>$beach
-    //   ]);
+ 
     return response()->json($beach,201);
     }
     
@@ -230,6 +212,24 @@ return response()->json($imgs);
 public function continent_index() {
     $continent = Continents::all();
     return response()->json($continent);
+}
+
+
+public function destroy($id)
+{
+    // Find the beach by ID
+    $beach = Beaches::find($id);
+
+    // Check if the beach does not exist
+    if (!$beach) {
+        return response()->json(['message' => 'Beach not found'], 404);
+    }
+
+    // Delete the beach
+    $beach->delete();
+
+    // Return a success response
+    return response()->json(['message' => 'Beach deleted successfully'], 200);
 }
 
 

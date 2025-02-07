@@ -38,32 +38,26 @@ const FilterSidebar = ({
   }, []);
 
   return (
-    <body className="main_filter">
-      <Container
-        style={{
-          paddingLeft: 20,
-          boxShadow: "0 5px 15px rgba(0, 0, 0, 0.4)",
-          backgroundColor: "inherit",
-        }}
-      >
-        <Container className="side_filter">
-          <h1 className="filter">Search Filter</h1>
-          <h3 className="title-header">Nation:</h3>
-          <form>
-            <select
-              value={selectedValue}
-              onChange={handleChange}
-              style={{ marginBottom: 20, width: "200px" }}
-            >
-              <option value={0}>Vui lòng chọn quốc gia</option>
-              {nation.map((item) => (
-                <option value={item.name}>{item.name}</option>
-              ))}
-            </select>
-          </form>
-        </Container>
+    <body className="bg-gray-100">
+      <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold mb-4 text-center">Search Filter</h1>
+        <h3 className="text-lg font-semibold mb-2">Nation:</h3>
+        <form>
+          <select
+            value={selectedValue}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded-lg mb-4"
+          >
+            <option value={0}>Vui lòng chọn quốc gia</option>
+            {nation.map((item) => (
+              <option value={item.name} key={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </form>
 
-        <Row style={{ marginTop: 50 }}>
+        <div className="mt-8">
           <SliderSection
             minVal={minVal}
             maxVal={maxVal}
@@ -75,44 +69,33 @@ const FilterSidebar = ({
             min={min}
             max={max}
           />
-        </Row>
+        </div>
 
-        <Row style={{ marginTop: 50 }}>
-          <Container>
-            <h2 className="title-header">Rating</h2>
-            <Row>
-              <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
-              />
-            </Row>
-          </Container>
-        </Row>
-        <Row
-          style={{
-            marginTop: 20,
-            marginBottom: 10,
-            marginLeft: 10,
-            marginRight: 10,
-          }}
-        >
-          <Button
-            variant="contained"
+        <div className="mt-8">
+          <h2 className="text-lg font-semibold mb-2">Rating</h2>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          />
+        </div>
+
+        <div className="mt-4 flex justify-center">
+          <button
             onClick={() => {
               setNationFilter(selectedValue);
               setMinFilter(minVal);
               setMaxFilter(maxVal);
               setRating(value);
             }}
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
           >
-            {" "}
             Filter
-          </Button>
-        </Row>
-      </Container>
+          </button>
+        </div>
+      </div>
     </body>
   );
 };

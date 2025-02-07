@@ -23,7 +23,7 @@ import {
 
 const AdminPage = () => {
   const [dsbb, setDsbb] = useState([]);
-  const [newBeach, setBeach] = useState();
+
   const [bb, setBb] = useState({
     name: "John Doe",
     description: "",

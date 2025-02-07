@@ -72,16 +72,7 @@ const SingleBeach = () => {
     <>
       <Navbar />
       {loading ? (
-        <p
-          style={{
-            fontSize: 50,
-            color: " #007bff",
-            textAlign: "center",
-            marginTop: 20,
-          }}
-        >
-          ...Loading
-        </p>
+        <p className="text-4xl text-blue-500 text-center mt-5">...Loading</p>
       ) : (
         <Row>
           <Col md={3}>
@@ -92,61 +83,61 @@ const SingleBeach = () => {
             />
           </Col>
           <Col md={8}>
-            <Row
-              style={{
-                marginTop: 20,
-                border: "1px solid black",
-                backgroundColor: "white",
-                boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.4)",
-                borderRadius: 10,
-                transition: "0.3s",
-                width: "100%",
-                height: 500,
-              }}
-            >
+            <Row className="mt-5 border border-black bg-white shadow-lg rounded-lg transition duration-300 w-full h-128">
               <Col className="left-col" md={5} style={{ marginTop: 10 }}>
-                <img src={singleBeach.avartar_url}></img>
+                <img
+                  src={singleBeach.avartar_url}
+                  className="w-full h-auto rounded-lg"
+                  alt="Beach Avatar"
+                />
               </Col>
               <Col className="right-col" md={7}>
-                <h2 style={{ color: "black" }}>{singleBeach.name}</h2>
-                <p style={{ color: "black" }}>{singleBeach.description}</p>
+                <h2 className="text-black text-2xl font-bold">
+                  {singleBeach.name}
+                </h2>
+                <p className="text-black">{singleBeach.description}</p>
                 <Rating
                   name="half-rating-read"
                   defaultValue={4.5}
                   precision={0.5}
                   readOnly
                 />
-                <h2>View position on Google map:</h2>
+                <h2 className="mt-4">View position on Google map:</h2>
                 <iframe
                   src={singleBeach.map_html_code}
-                  style={{ height: 250 }}
+                  className="w-full h-64 mt-2 rounded-lg"
+                  title="Google Map"
                 ></iframe>
               </Col>
             </Row>
             <Row>
-              <h1>Slide Image</h1>
+              <h1 className="text-3xl font-bold mt-5 text-center text-gray-800">
+                Slide Image
+              </h1>
             </Row>
             <Row>
-              {" "}
-              <Carousel>
-                {imgLibra.map((item) => {
-                  return (
-                    <Carousel.Item>
-                      <img src={item.img_url} style={{ height: 600 }} />
-                      <Carousel.Caption>
-                        <h3>{item.caption}</h3>
-                        <p>
-                          Nulla vitae elit libero, a pharetra augue mollis
-                          interdum.
-                        </p>
-                      </Carousel.Caption>
-                    </Carousel.Item>
-                  );
-                })}
+              <Carousel className="w-full mt-5">
+                {imgLibra.map((item) => (
+                  <Carousel.Item key={item.img_url}>
+                    <img
+                      src={item.img_url}
+                      className="w-full h-96 object-cover rounded-lg shadow-lg"
+                      alt="Beach"
+                    />
+                    <Carousel.Caption className="bg-black bg-opacity-50 rounded-lg p-4">
+                      <h3 className="text-lg font-semibold text-white">
+                        {item.caption}
+                      </h3>
+                      <p className="text-sm text-gray-300">
+                        Nulla vitae elit libero, a pharetra augue mollis
+                        interdum.
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                ))}
               </Carousel>
             </Row>
-
-            <Row className="tabs-section" style={{ marginTop: 20 }}>
+            <Row className="tabs-section mt-5">
               <TabSection id={id} />
             </Row>
           </Col>

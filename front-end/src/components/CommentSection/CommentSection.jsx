@@ -30,7 +30,7 @@ const CommentSection = ({ id }) => {
   const handleShowSuccess = () => setShowSuccess(true);
 
   const [comments, setComments] = useState([]);
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState({});
   const [login, setLogin] = useState({});
   const [register, setRegister] = useState({});
   const [fileName, setFileName] = useState("");
@@ -74,25 +74,37 @@ const CommentSection = ({ id }) => {
     }
   };
 
+  const handleChangeComment = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setComment({ beachid: id, accountid: userId, [name]: value });
+    console.log(comment);
+  };
+
   useEffect(() => {
     fetchComments();
-  }, [id, role]);
+  }, [id]);
 
   console.log(role);
 
   const Submit = async (e) => {
+    console.log(comment);
     e.preventDefault();
+    setComments([]);
     setComment(cmRef.current.value);
     console.log(cmRef.current.value);
     try {
-      await axios.post(`http://127.0.0.1:8000/api/comments`, {
-        beachid: id,
-        accountid: `${userId}`, // Replace with actual account ID
-        comment: cmRef.current.value,
-      });
-      fetchComments();
+      // await axios.post(`http://127.0.0.1:8000/api/comments`, {
+      //   beachid: id,
+      //   accountid: `${userId}`, // Replace with actual account ID
+      //   comment: cmRef.current.value,
+      // });
 
-      setComment("");
+      axios
+        .post(`http://127.0.0.1:8000/api/comments`, comment)
+        .then(setComments([...comments, comment]));
+
+      setComment({});
       cmRef.current.value = "";
     } catch (err) {
       console.error(err);
@@ -185,7 +197,7 @@ const CommentSection = ({ id }) => {
   return (
     <body>
       <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-lg">
-        <form action="action_page.php" className="mb-4">
+        <form className="mb-4">
           <label htmlFor="fname" className="block text-lg font-semibold mb-2">
             Comment
           </label>
@@ -194,9 +206,10 @@ const CommentSection = ({ id }) => {
               ref={cmRef}
               type="text"
               id="fname"
-              name="firstname"
+              name="comment"
               placeholder="Your comment.."
               className="flex-grow p-2 border border-gray-300 rounded-lg"
+              onChange={handleChangeComment}
             />
             {token ? (
               <button
@@ -209,9 +222,10 @@ const CommentSection = ({ id }) => {
               </button>
             ) : (
               <button
-                type="submit"
-                value="Submit"
-                onClick={handleShow}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleShow();
+                }}
                 className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-3 px-6 rounded-full hover:from-blue-600 hover:to-blue-800 transition duration-300 shadow-lg transform hover:scale-105"
               >
                 Comment
@@ -224,7 +238,7 @@ const CommentSection = ({ id }) => {
           <p className="text-4xl text-blue-500 text-center mt-5">...Loading</p>
         ) : (
           <div id="comments" className="space-y-4">
-            {comments.length > 0 ? (
+            {comments.length > 0 &&
               comments.map((comment) => (
                 <CommentFeed
                   key={comment.id}
@@ -232,8 +246,8 @@ const CommentSection = ({ id }) => {
                   accountid={comment.accountid}
                   createdAt={comment.created_at}
                 />
-              ))
-            ) : (
+              ))}
+            {!comments && (
               <p className="text-center text-gray-500 text-lg italic mt-4">
                 Chưa có bình luận nào
               </p>
