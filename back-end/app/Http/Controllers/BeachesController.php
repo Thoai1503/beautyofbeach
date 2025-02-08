@@ -130,6 +130,11 @@ class BeachesController extends Controller
         return response()->json($beach);
         
     }
+
+    public function allToPaginate(){
+        $beaches = Beaches::paginate(9);
+        return response()->json($beaches);
+    }
    
     // public function show_library($id) 
     // {

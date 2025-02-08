@@ -28,6 +28,8 @@ Route::delete('/api/products/{id}', [ProductsController::class, 'destroy']);
 Route::post('/api/products', [ProductsController::class, 'store']);
 Route::put('/api/products/{id}', [ProductsController::class, 'update']);
 
+
+Route::get('/api/beaches/paginate', [BeachesController::class, 'allToPaginate']);
 Route::get('/api/beach', [BeachesController::class, 'index']);
 
 Route::post('api/beach', [BeachesController::class, 'store']);
