@@ -84,7 +84,6 @@ const BeachList = ({
   };
 
   const searchBeach = async (key) => {
-    setLoading(true);
     try {
       const res = await axios.get("http://127.0.0.1:8000/api/beachjoin");
       const filtered = res.data.filter((item) =>
@@ -94,7 +93,6 @@ const BeachList = ({
     } catch (error) {
       console.error("Error searching for beaches:", error);
     } finally {
-      setLoading(false);
     }
   };
 

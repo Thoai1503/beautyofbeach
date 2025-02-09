@@ -10,6 +10,7 @@ import Feed from "../Feed/Feed";
 
 const TabSection = ({ id }) => {
   const date = new FormData();
+  const fileInputRef = useRef(null);
   const commentRef = useRef(null);
   const { userId } = useStateContext();
   const [fileName, setFileName] = useState("");
@@ -26,6 +27,8 @@ const TabSection = ({ id }) => {
     if (selectedFile) {
       setFileName(selectedFile.name);
       setFile(selectedFile);
+      console.log(selectedFile);
+      console.log("Input file:" + fileInputRef.current.value);
       setSelectedTab("radiofortab2"); // Set the selected tab to "radiofortab2" after choosing a file
     } else {
       setFileName("");
@@ -90,9 +93,11 @@ const TabSection = ({ id }) => {
         console.log("Response :" + res.data);
         setFileName("");
         fetchReviews();
+        setFile(null);
 
         setSelectedTab("radiofortab2");
         commentRef.current.value = "";
+        fileInputRef.current.value = "";
       })
       .catch((e) => console.error("Failure", e));
   };
@@ -188,6 +193,7 @@ const TabSection = ({ id }) => {
                       type="file"
                       className="sr-only"
                       onChange={(e) => handleFileChange(e)}
+                      ref={fileInputRef}
                     />
                   </label>
                   <p className="pl-1">or drag and drop</p>

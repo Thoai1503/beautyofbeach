@@ -24,14 +24,7 @@ import {
 const AdminPage = () => {
   const [dsbb, setDsbb] = useState([]);
 
-  const [bb, setBb] = useState({
-    name: "John Doe",
-    description: "",
-    visitor: "",
-    nationid: "",
-    ratingScore: "",
-    avartar_url: "",
-  });
+  const [bb, setBb] = useState({});
   const [selectedBeach, setSelectedBeach] = useState({});
 
   // State showInfoModal cho phép ẩn/hiện modal chi tiết bãi biển
@@ -65,6 +58,7 @@ const AdminPage = () => {
     let name = e.target.name;
     let value = e.target.value;
     setBb({ ...bb, [name]: value });
+    console.log(bb);
   };
 
   const handleAdd = (e) => {
